@@ -55,22 +55,47 @@ function pickingNumbers(a) {
 }
 */
 
+// Converted Java solution from discussion board
+// Fails 4/10 test cases
 function pickingNumbers(a) {
-  let sortedArr = a.slice().sort();
-  let tempArr = [];
+  // Sort the arr
+  let sortedArr = a.sort();
+  // Declare a var to store length of sorted arr
+  let len = sortedArr.length;
+  // Memoize max, init to 0
+  let max = 0;
+  // Memoize sameElement, init to 0
+  let sameElement = 0;
+  
+  // Iterate through the sorted array in reverse direction
+  for (let i = len - 1; i >= 0 ; i -= 1) {
+    // Declare a temporary count init at 1
+    let count = 1;
 
-  sortedArr.forEach((num, i) => {
-    if (Math.abs(num - sortedArr[i + 1]) <= 1 || Math.abs(num - sortedArr[i - 1]) <= 1) {
-      if (tempArr.length >= 1 && num - tempArr[0] <= 1) {
-        tempArr.push(num);
-      } else if (tempArr.length < 1) {
-        tempArr.push(num);
+    // Conditional block
+    // If val of current index is equal to same value, continue
+    if (sortedArr[i] === sameElement) {
+      continue;
+    // Else, assign the value of current index to sameElement var
+    } else {
+      sameElement = sortedArr[i];
+    }
+
+    // Iterate 1 index less than current index in reverse direction
+    for (let j = i - 1; j >= 0; j -= 1) {     
+      // Conditional block
+      // If the difference of the current index value and the index value 1 before current is less than 2 
+      if ((sortedArr[i] - sortedArr[j]) < 2) {
+        // Increment count by 1
+        count += 1;
       }
     }
-  });
-  
-  console.log({ sortedArr, tempArr });
-  return tempArr.length;
+
+    // If value of count is greater than the value of max, assign max the value of count, else value of max remains
+    max = count > max ? count : max;
+  }
+  // return the value of max
+  return max;
 }
 
 let arr;
