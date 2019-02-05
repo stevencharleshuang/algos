@@ -2,7 +2,7 @@
  * Electronics Shop
  * https://www.hackerrank.com/challenges/electronics-shop/problem
  * 
- * It should return the maximum total price for the two items within Monica's 
+ * @desc It should return the maximum total price for the two items within Monica's 
  * budget, or -1 if she cannot afford both items.
  * 
  * @param { array } keyboards: an array of integers representing keyboard prices
