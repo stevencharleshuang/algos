@@ -9,29 +9,11 @@
  */
 
 function pageCount(n, p) {
-  let half = Math.ceil(n / 2);
-  let numTurns = 0;
-  let curPage = 1;
+  let half = n / 2;
+  let right = Math.floor(n/2 - p/2);
+  let left = Math.floor(p/2);
 
-  if (p > half) {
-    while (curPage > 1) {
-      if (p < curPage || p < curPage - 1) {
-        numTurns += 1;
-        curPage -= 2;
-      } else {
-        return numTurns;
-      }
-    }
-  } else {
-    while (curPage < n) {
-      if (p > curPage || p > curPage + 1) {
-        numTurns += 1;
-        curPage += 2;
-      } else {
-        return numTurns;
-      }
-    }
-  }
+  let numTurns = right < left ? right : left;
 
   return numTurns;
 }
@@ -39,7 +21,7 @@ function pageCount(n, p) {
 let testCase;
 testCase = [ 5, 4 ]; // => 0
 // testCase = [ 6, 2 ]; // => 1
-testCase = [ 6, 5 ]; // => 1
+// testCase = [ 6, 5 ]; // => 1
 
 let result = pageCount(...testCase);
 console.log({ result });
