@@ -20,7 +20,7 @@ function chocolateFeast(n, c, m) {
     numWrappers += tempBars;
   }
   
-  return numBars
+  return numBars;
 }
 
 let testCase;
