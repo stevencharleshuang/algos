@@ -19,6 +19,7 @@ function workbook(n, k, arr) {
       if (k === 1) {
         page += 1;
       }
+
       if (problem % k === 1) {
         page += 1;
       }
@@ -27,7 +28,7 @@ function workbook(n, k, arr) {
         specialProblems += 1;
       }
         
-      console.log({numProblems, page, problem, specialProblems });
+      // console.log({numProblems, page, problem, specialProblems });
       problem += 1;
     }
   });
