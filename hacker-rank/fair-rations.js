@@ -24,7 +24,7 @@ function fairRations(B) {
       }
     }
   }
-  console.log({ loaves, arrSum });
+  
   return loaves;
 }
 
