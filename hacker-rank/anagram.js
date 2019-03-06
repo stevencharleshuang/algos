@@ -26,12 +26,14 @@ function anagram(s) {
   for (let char in sub1Hash) {
     if (Object.keys(sub2Hash).indexOf(char) === -1) {
       count += sub1Hash[char];
+      console.log('case1', { count, char }, sub1Hash[char]);
     } else if (sub1Hash[char] !== sub2Hash[char]) {
       count += Math.abs(sub1Hash[char] - sub2Hash[char]);
+      console.log('case2', { count, char }, sub1Hash[char]);
     }
   }
 
-  console.log({ sub1, sub2, sub1Hash, sub2Hash });
+  console.log({ count, sub1, sub2, sub1Hash, sub2Hash });
   return count;
 }
 
@@ -39,7 +41,6 @@ let testCase;
 testCase = 'asdfjoieufoa'; // => 3
 testCase = 'fdhlvosfpafhalll'; // => 5
 // testCase = 'mvdalvkiopaufl'; // => 5
-//
 // testCase = 'aaabbb'; // -> 3
 // testCase = 'ab'; // -> 1
 // testCase = 'abc'; // -> -1
