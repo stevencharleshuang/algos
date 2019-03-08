@@ -8,15 +8,24 @@
  */
 
 function theLoveLetterMystery(s) {
+  let count = 0;
 
+  for (let i = 0; i < Math.ceil(s.length / 2); i += 1) {
+    let front = s[i], end = s[s.length - i - 1];
+    
+    if (front !== end) {
+      count += Math.abs(s.charCodeAt(i) - s.charCodeAt(s.length - i - 1));
+    }
+  }
 
+  return count;
 }
 
 let testCase;
-testCase = abc; // => 2
-testCase = abcba; // => 0
-testCase = abcd; // => 4
-testCase = cba; // => 2
+testCase = 'abc'; // => 2
+// testCase = 'abcba'; // => 0
+// testCase = 'abcd'; // => 4
+// testCase = 'cba'; // => 2
 
 console.log(theLoveLetterMystery(testCase));
 
