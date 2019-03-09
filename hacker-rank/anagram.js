@@ -1,7 +1,7 @@
 /**
  * Anagram
  * https://www.hackerrank.com/challenges/anagram/problem
- * 
+ * @function anagram
  * @description It should return the minimum number of characters to change to make the words anagrams, or -1 if it's not possible.
  * @param {string} s: a string
  * @returns {number} Prints an integer representing the minimum number of changes required to make an anagram. Print -1 if it is not possible.
@@ -12,7 +12,6 @@ function anagram(s) {
     return -1;
   }
 
-  let count = 0;
   let count1 = 0;
   let count2 = 0;
   let sub1 = s.slice(0, s.length / 2);
@@ -43,7 +42,6 @@ function anagram(s) {
     }
   }
 
-  console.log({ count1, count2, sub1, sub2, sub1Hash, sub2Hash });
   return count1 < count2 ? count1 : count2;
 }
 
