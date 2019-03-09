@@ -13,6 +13,8 @@ function anagram(s) {
   }
 
   let count = 0;
+  let count1 = 0;
+  let count2 = 0;
   let sub1 = s.slice(0, s.length / 2);
   let sub2 = s.slice(s.length / 2);
   let sub1Hash = {};
@@ -22,31 +24,39 @@ function anagram(s) {
     sub1Hash[sub1[i]] ? sub1Hash[sub1[i]] += 1 : sub1Hash[sub1[i]] = 1;
     sub2Hash[sub2[i]] ? sub2Hash[sub2[i]] += 1 : sub2Hash[sub2[i]] = 1;
   }
-  
+
   for (let char in sub1Hash) {
-    if (Object.keys(sub2Hash).indexOf(char) === -1) {
-      count += sub1Hash[char];
-      console.log('case1', { count, char }, sub1Hash[char]);
-    } else if (sub1Hash[char] !== sub2Hash[char]) {
-      count += Math.abs(sub1Hash[char] - sub2Hash[char]);
-      console.log('case2', { count, char }, sub1Hash[char]);
+    let sub2Keys = Object.keys(sub2Hash);
+    if (!sub2Keys.find((el) => el === char)) {
+      count1 += sub1Hash[char];
+    } else if (sub1Hash[char] !== sub2Hash[char] && sub1Hash[char] > sub2Hash[char]) {
+      count1 += Math.abs(sub1Hash[char] - sub2Hash[char]);
     }
   }
 
-  console.log({ count, sub1, sub2, sub1Hash, sub2Hash });
-  return count;
+  for (let char in sub2Hash) {
+    let sub1Keys = Object.keys(sub1Hash);
+    if (!sub1Keys.find((el) => el === char)) {
+      count2 += sub2Hash[char];
+    } else if (sub2Hash[char] !== sub1Hash[char] && sub2Hash[char] > sub1Hash[char]) {
+      count2 += Math.abs(sub2Hash[char] - sub1Hash[char]);
+    }
+  }
+
+  console.log({ count1, count2, sub1, sub2, sub1Hash, sub2Hash });
+  return count1 < count2 ? count1 : count2;
 }
 
 let testCase;
 testCase = 'asdfjoieufoa'; // => 3
-testCase = 'fdhlvosfpafhalll'; // => 5
+// testCase = 'fdhlvosfpafhalll'; // => 5
 // testCase = 'mvdalvkiopaufl'; // => 5
 // testCase = 'aaabbb'; // -> 3
 // testCase = 'ab'; // -> 1
 // testCase = 'abc'; // -> -1
 // testCase = 'mnop'; // -> 2
 // testCase = 'xyyx'; // -> 0
-// testCase = 'xaxbbbxx'; // -> 1
+testCase = 'xaxbbbxx'; // -> 1
 
 console.log(anagram(testCase));
 
