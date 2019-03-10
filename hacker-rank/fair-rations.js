@@ -1,7 +1,7 @@
 /**
+ * @function fairRations
  * Fair Rations
  * https://www.hackerrank.com/challenges/fair-rations/problem
- * 
  * @description It should return an integer that represents the minimum number of loaves required.
  * @param {array} B: an array of integers that represent the number of loaves each persons starts with
  * @returns Print a single integer taht denotes the minimum number of loaves that must be distributed so that every person has an even number of loaves. If it's not possible to do this, print NO.

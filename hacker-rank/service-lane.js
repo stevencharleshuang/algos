@@ -1,7 +1,7 @@
 /**
  * Service Lane
  * https://www.hackerrank.com/challenges/service-lane/problem
- * 
+ * @function serviceLane
  * @description It should return an array of integers representing the maximum width vehicle that can pass through each segment of the highway described.
  * @param {number} n: an integer denoting the size of the  array
  * @param {array} cases: a two dimensional array of integers where each element is an array of two integers representing starting and ending indices for a segment to consider
