@@ -14,15 +14,16 @@ const longestSubstring = (s) => {
   for (let i = 0; i < s.length; i += 1) {
     if (tempArr.indexOf(s[i]) === -1) {
       tempArr.push(s[i]);
-    } else {
-      tempArr.push(s[i]);
-
-      if (tempArr.length > longestSubSLen) {
-        longestSubSLen = tempArr.length;
-      }
-      
+    } else {  
       tempArr = [];
+      tempArr.push(s[i]);      
     }
+
+    if (tempArr.length > longestSubSLen) {
+      longestSubSLen = tempArr.length;
+    }
+  
+    console.log({ tempArr, longestSubSLen });
   }
 
   return longestSubSLen;
@@ -31,5 +32,5 @@ const longestSubstring = (s) => {
 let testCase;
 
 testCase = 'brilliant'; // => liant => 5
-testCase = 'xhbeqirxwobpuhkojsijumtfhsvyhyznuvzooiqxkvllfrpfnweiucjilnwixlucopomethoczbujltfycvbvvhuzstnmjcqgqchrktvsinunbopmgbwyegwkysmcxsdlhsbtcczfvcfvrbsqsxliyxzgzwvwgvvvgxgqyrbfetiwyqyircnysvcpfywdihnkjhwjsww';
+testCase = 'xhbeqirxwobpuhkojsijumtfhsvyhyznuvzooiqxkvllfrpfnweiucjilnwixlucopomethoczbujltfycvbvvhuzstnmjcqgqchrktvsinunbopmgbwyegwkysmcxsdlhsbtcczfvcfvrbsqsxliyxzgzwvwgvvvgxgqyrbfetiwyqyircnysvcpfywdihnkjhwjsww'; // => 13
 console.log(longestSubstring(testCase));
