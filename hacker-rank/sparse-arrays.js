@@ -15,9 +15,7 @@ function matchingStrings(strings, queries) {
 
   strings.forEach(string => stringsHash[string] ? stringsHash[string] += 1 : stringsHash[string] = 1);
 
-  queries.forEach(query => {
-    stringsHash[query] ? resultsArr.push(stringsHash[query]) : resultsArr.push(0);
-  });
+  queries.forEach(query => stringsHash[query] ? resultsArr.push(stringsHash[query]) : resultsArr.push(0));
 
   return resultsArr;
 }
