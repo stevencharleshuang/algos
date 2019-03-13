@@ -2,11 +2,11 @@
  * Array Manipulation
  * https://www.hackerrank.com/challenges/crush/problem
  * 
- * @function
- * @description
- * @param
- * @param
- * @returns
+ * @function arrayManipulation
+ * @description It must return an integer, the maximum value in the resulting array
+ * @param {number} n: the number of elements in your array
+ * @param {array} queries: a two dimensional array of queries where each queries[i] contains three integers, a, b, and k.
+ * @returns {number} the integer maximum value in the finished array
  */
 
 // Solution is passing but timing out on certain test cases
