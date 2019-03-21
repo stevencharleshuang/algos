@@ -8,27 +8,25 @@
  * @returns Print the number of people who liked the advertisement during the first n days.
  */
 
-/* 
-More Explicit Solution
-*/
-// function viralAdvertising(n) {
-//   let shared = 5;
-//   let cumulative = 2;
+function viralAdvertising(n) {
+  let shared = 5;
+  let cumulative = 2;
 
-//   for (let i = 1; i < n; i += 1) {
-//     shared = Math.floor(shared / 2) * 3;
-//     cumulative += Math.floor(shared / 2);
-//   }
+  for (let i = 1; i < n; i += 1) {
+    shared = Math.floor(shared / 2) * 3;
+    cumulative += Math.floor(shared / 2);
+  }
   
-//   return cumulative;
-// }
+  return cumulative;
+}
 
 function viralAdvertising(n) {
   let shared = 5;
   let cumulative = 2;
 
   for (let i = 1; i < n; i += 1) {
-    cumulative += Math.floor(Math.floor(shared / 2) * 3 / 2);
+    shared = Math.floor(shared / 2) * 3;
+    cumulative += Math.floor(shared / 2);
   }
 
   return cumulative;
